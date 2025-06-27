@@ -1,6 +1,7 @@
 import React from 'react'
 import "./MenuBar.css"
 import { assets } from '../../assets/assets';
+import { Link } from 'react-router-dom';
 
 const MenuBar = () => {
   return (
@@ -14,19 +15,19 @@ const MenuBar = () => {
       <div className="collapse navbar-collapse p-2" id="navbarNav">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">DASHBOARD</a>
+            <Link className="nav-link active" aria-current="page" to={"/dashboard"}>DASHBOARD</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">EXPLOR</a>
+            <Link className="nav-link" to={"/explor"}>EXPLOR</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">MANAGE ITEMS</a>
+            <Link className="nav-link" to={"/items"}>MANAGE ITEMS</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">MANAGE CATEGORIES</a>
+            <Link className="nav-link" to={"/category"}>MANAGE CATEGORIES</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">MANAGE USERS</a>
+            <Link className="nav-link" to={"/users"}>MANAGE USERS</Link>
           </li>
         </ul>
         add dropdown for user profiles
