@@ -1,5 +1,7 @@
 import React from 'react'
 import "./ManageCategories.css";
+import CategoryForm from '../../components/CategoryForm/CategoryForm';
+import CategoryList from '../../components/CategoryList/CategoryList';
 
 const ManageCategories = () => {
   return (
@@ -7,12 +9,14 @@ const ManageCategories = () => {
 
       <div className="left-column">
 
-        category form
+        <CategoryForm/>
+
       </div>
 
       <div className="right-column">
 
-        list of categories
+        <CategoryList/>
+
       </div>
 
 

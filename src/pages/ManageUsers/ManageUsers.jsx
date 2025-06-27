@@ -1,5 +1,7 @@
 import React from 'react'
-import "./ManageUsers.css";
+import UserFrom from '../../components/UserFrom/UserFrom'
+import UserList from '../../components/UserList/UserList'
+
 
 const ManageUsers = () => {
   return (
@@ -7,12 +9,16 @@ const ManageUsers = () => {
 
       <div className="left-column">
 
-        category form
+        <UserFrom/>
+
+        
       </div>
 
       <div className="right-column">
 
-        list of categories
+        <UserList/>
+
+        
       </div>
 
 

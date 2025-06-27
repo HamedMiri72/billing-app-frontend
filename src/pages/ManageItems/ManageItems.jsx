@@ -1,5 +1,7 @@
 import React from 'react'
 import "./ManageItems.css";
+import ManageItem from '../../components/ManageItem/ManageItem';
+import ItemsList from '../../components/ItemsList/ItemsList';
 
 const ManageItems = () => {
   return (
@@ -8,13 +10,13 @@ const ManageItems = () => {
 
       <div className="left-column">
 
-        left box
-        
+      <ManageItem/>
+
       </div>
 
       <div className="right-column">
 
-        right box
+        <ItemsList/>
 
       </div>
 
