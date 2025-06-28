@@ -5,7 +5,7 @@ const CategoryForm = () => {
     <div className='mx-2 mt-2'>
 
         <div className="row">
-            <dic className="card col-md-8 form-container">
+            <div className="card col-md-8 form-container">
                 <div className="card-body">
                     <form>
                         <div className="mb-3">
@@ -35,7 +35,7 @@ const CategoryForm = () => {
                         
                     </form>
                 </div>
-            </dic>
+            </div>
         </div>
     </div>
   )

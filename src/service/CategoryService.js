@@ -7,7 +7,7 @@ export const addCategory = async (category) => {
 }
 
 export const getAllCategories = async () => {
-    return await axios.get("http://localhost:9000/api/v1.0/categories/");
+    return await axios.get("http://localhost:9000/api/v1.0/categories");
 }
 
 export const deleteCategory = async (categoryId) => {

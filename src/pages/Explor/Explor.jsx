@@ -1,8 +1,13 @@
 import React from 'react'
 import "./Explor.css";
+import { useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 
 const Explor = () => {
-  return (
+
+  const {categories} = useContext(AppContext);
+  console.log(categories);
+    return (
     <div className="explor-container text-light">
 
       <div className='left-column'>
