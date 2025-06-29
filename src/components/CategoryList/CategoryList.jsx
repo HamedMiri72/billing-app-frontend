@@ -28,10 +28,7 @@ const deleteByCategoryId = async (categoryId) => {
       toast.error("Failed to delete category");
     }
   }catch(error){
-
     console.error("Error deleting category:", error);
-    
-
   }
 }
 
