@@ -6,11 +6,13 @@ import ManageItems from './pages/ManageItems/ManageItems';
 import ManageUsers from './pages/ManageUsers/ManageUsers';
 import ManageCategories from './pages/ManageCategories/ManageCategories';
 import Explor from './pages/Explor/Explor';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
     <div>
       <MenuBar/>
+      <Toaster/>
 
       <Routes>
 

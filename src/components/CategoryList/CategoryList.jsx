@@ -1,16 +1,41 @@
-import React, { useContext, useState } from 'react'
-import { AppContext } from '../../context/AppContext';
+
 import './CategoryList.css';
+import { useContext, useState } from 'react';
+import { AppContext } from '../../context/AppContext';
+import { deleteCategory } from '../../service/CategoryService';
+import toast from 'react-hot-toast';
 
 const CategoryList = () => {
 
-  const { categories } = useContext(AppContext);
+  const {categories, setCategories} = useContext(AppContext);
   const [searchTerm, setSearchTerm] = useState('');
 
 
-  const filterByCategory = categories.filter(category => 
-    category.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCategories = categories.filter(category => {
+    return category.name.toLowerCase().includes(searchTerm.toLowerCase());
+  })
+
+const deleteByCategoryId = async (categoryId) => {
+
+  try{
+
+    const response = await deleteCategory(categoryId);
+    if(response.status === 200){
+      const updatedCategories = categories.filter(category => category.categoryId !== categoryId);
+      setCategories(updatedCategories);
+      toast.success("Category deleted successfully");
+    }else{
+      toast.error("Failed to delete category");
+    }
+  }catch(error){
+
+    console.error("Error deleting category:", error);
+    
+
+  }
+}
+
+  
 
   return (
     <div className="category-list-container" style={{ height: "100vh", overflowY: "auto", overflowX: "hidden" }}>
@@ -18,7 +43,7 @@ const CategoryList = () => {
       <div className="row pe-2">
 
         <div className='input-group mb-3'>
-          <input type="text" name='keyword' id='keyword' placeholder='search by keyword' className='form-control' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+          <input type="text" className='form-control' name='search' id='search' placeholder='Search a category' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
           <span className='input-group-text bg-warning'>
             <i className='bi bi-search'></i>
           </span>
@@ -28,7 +53,7 @@ const CategoryList = () => {
       <div className='row g-3 pe-2'>
 
 
-        {filterByCategory.map((category, index) => (
+        {filteredCategories.map((category, index) => (
           <div className="col-12" key={index}>
 
             <div className="card p-3" style={{ backgroundColor: category.bgColor }}>
@@ -41,7 +66,7 @@ const CategoryList = () => {
                   <p className='mb-0 text-white'>{category.items}</p>
                 </div>
                 <div>
-                  <button className='btn btn-danger btn-sma'>
+                  <button className='btn btn-danger btn-sma' onClick={() => deleteByCategoryId(category.categoryId)}>
                     <i className="bi bi-trash"></i>
                   </button>
                 </div>
